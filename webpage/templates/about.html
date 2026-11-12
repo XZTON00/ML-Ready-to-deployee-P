@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <style>
+        body{
+            background: black;
+            color: white;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #hh1{
+            border: solid;
+            border-color: white;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hh3{
+            border: solid;
+            border-color: white;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sl{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .sl a{
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+            transition: 0.2s;
+        }
+
+        .sl a:hover{
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white,
+                        0 0 20px white,
+                        0 0 40px white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="hh1">About Page!</h1>
+        <br>
+    </header>
+    <div class="container">
+        <div>
+            <main>
+                <hr>
+                <h4>
+                    Hi here is Xzton!
+                    I am a computor scince student 
+                    from india.
+                </h4>
+                <h4>
+                    created this algorihim web page for fun. 
+                    the site sever is running on flask python.
+                    and algorihim used in this project is 
+                    Linear Regression.
+                </h4>
+                <h4>
+                    If you like the page, see more ML algo & Deep learning concept on my github or Instagram.
+                </h4>
+                <hr>
+                <br>
+                <div class="sl">
+                    <a href="https://www.instagram.com/xzton.c/">Instagram</a>
+                    <br>
+                    <a href="https://github.com/XZTON00">Github</a>
+                </div>
+                <br>
+                <hr>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <br>
+        <h3 id="hh3">Thanks for Vist</h3>
+    </footer>
+</body>
+</html>

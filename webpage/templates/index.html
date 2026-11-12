@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Phone Impact Prediction</title>
+
+    <style>
+
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #hh1 {
+            border: 2px solid white;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+        }
+
+        #hh3 {
+            border: 2px solid white;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+        }
+
+        h3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sl {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .sl a {
+            text-decoration: none;
+            color: white;
+
+            border: 2px solid white;
+            border-radius: 10px;
+
+            margin: 5px;
+            padding: 8px;
+
+            transition: 0.3s;
+        }
+
+        .sl a:hover {
+            background-color: white;
+            color: black;
+
+            box-shadow:
+                0 0 10px white,
+                0 0 20px white,
+                0 0 40px white;
+        }
+
+        .sl input {
+            background: black;
+            color: white;
+
+            border: 2px solid white;
+            border-radius: 10px;
+
+            margin: 5px;
+            padding: 8px;
+
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .sl input:hover {
+            background: white;
+            color: black;
+
+            box-shadow:
+                0 0 10px white,
+                0 0 20px white,
+                0 0 40px white;
+        }
+
+        #button {
+            width: 100%;
+            padding: 8px;
+
+            border: 2px solid white;
+            border-radius: 10px;
+
+            background: black;
+            color: white;
+
+            outline: none;
+            transition: 0.3s;
+
+            box-sizing: border-box;
+        }
+
+        #button:focus {
+            background: white;
+            color: black;
+
+            box-shadow:
+                0 0 10px white,
+                0 0 20px white;
+        }
+
+        .message {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: lightgreen;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1 id="hh1">
+            Phone Impact Prediction
+        </h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <div>
+
+            <main>
+
+                <form action="/predict" method="POST">
+
+                    <p>Select The Information Of Person</p>
+
+                    <br>
+                    <hr>
+                    <br>
+
+
+                    <!-- Age Input -->
+
+                    <b>Enter Age:</b>
+
+                    <input
+                        type="number"
+                        name="age"
+                        id="button"
+                        min="1"
+                        required
+                    >
+
+                    <br><br>
+
+
+                    <!-- Gender Input -->
+
+                    <b>Gender:</b>
+
+                    <select
+                        name="Gender"
+                        id="button"
+                        required
+                    >
+
+                        <option value="">Select Gender</option>
+
+                        <option value="Male">Male</option>
+
+                        <option value="Female">Female</option>
+
+                    </select>
+
+                    <br><br>
+
+
+                    <!-- Daily Usage Input -->
+
+                    <b>Enter Daily Usage Hours:</b>
+
+                    <input
+                        type="number"
+                        name="Daily_Usage_Hours"
+                        id="button"
+                        min="0"
+                        max="24"
+                        step="any"
+                        required
+                    >
+
+                    <br><br>
+
+
+                    <!-- Sleep Duration Input -->
+
+                    <b>Enter Sleep Duration Hours:</b>
+
+                    <input
+                        type="number"
+                        name="Sleep_Duration_Hours"
+                        id="button"
+                        min="0"
+                        max="24"
+                        step="any"
+                        required
+                    >
+
+                    <br><br>
+
+
+                    <!-- Submit Button -->
+
+                    <div class="sl">
+
+                        <input type="submit" value="Predict">
+
+                    </div>
+
+                    <br>
+
+                </form>
+
+
+                <hr>
+
+                <!-- CORRECTED: Display error messages -->
+
+                {% if error %}
+
+                    <div class="message error">
+
+                        {{ error }}
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- CORRECTED: Display prediction result -->
+
+                {% if prediction %}
+
+                    <div class="message success">
+
+                        <h3>Result: {{ prediction }}</h3>
+
+                    </div>
+
+                {% else %}
+
+                    {% if not error %}
+
+                        <h3>Result: Waiting for input...</h3>
+
+                    {% endif %}
+
+                {% endif %}
+
+                <br>
+                <hr>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <br>
+
+        <div class="sl">
+
+            <!-- CORRECTED: Actual Flask About route -->
+
+            <a href="/about">About</a>
+
+        </div>
+
+        <h3 id="hh3">Thanks for Visiting</h3>
+
+    </footer>
+
+
+</body>
+
+</html>
